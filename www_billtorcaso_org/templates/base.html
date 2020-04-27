@@ -25,7 +25,10 @@
         {% endblock %}
     </head>
 
-    <body class="{% block body_class %}{% endblock %}">
+    <body 
+        class="{% block body_class %}{% endblock %}"
+        style="background-color:#FFEED3;" >
+
         {% wagtailuserbar %}
 
         {% block content %}{% endblock %}
