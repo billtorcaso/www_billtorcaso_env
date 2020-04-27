@@ -4,5 +4,8 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"editor.fontSize": 16,
+		"editor.renderWhitespace": "all"
+	}
 }
