@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+    {% image page.background_image max-1200x1200 %}
+    {% for block in page.body %}
+            <h2>{{block.block_type}}</h2>
+            {% if block.block_type == "image" %}
+                {% image block.value max-300x300 %}
+            {% else %}
+                {% include_block block %}
+            {% endif %}
+    {% endfor %}
+{% endblock %}
+
