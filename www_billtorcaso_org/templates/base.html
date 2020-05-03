@@ -26,13 +26,13 @@
     </head>
 
     <body class="{% block body_class %}{% endblock %}" 
-          style="background-color:#ffeed3">
+          style="background-color:#ffeed3;border: 3px solid #73AD21;">
         {% wagtailuserbar %}
 
         {% block content %}{% endblock %}
 
         {# Global javascript #}
-        <script type="text/javascript" src="{% static 'js/bto_rebuild.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/www_billtorcaso_org.js' %}"></script>
 
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}

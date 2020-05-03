@@ -1,17 +1,33 @@
 {% extends "base.html" %}
 
+{% load static %}
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
+
+{# Overriding this to add extra app-sprecific stylesheet #}
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/www_billtorcaso_org.css' %}">
+{% endblock %}
 
 {% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
+    <div class=".bt">
+        <p style="font-size:100px;color:red;">
+        FOOBAR
+        </p>
+    </div>
     {% image page.background_image max-1200x1200 %}
     {% for block in page.body %}
-            <h2>{{block.block_type}}</h2>
             {% if block.block_type == "image" %}
+                <div style="border: 3px solid #73AD21;">
+                    <h2>{{block.block_type}}</h2>
+                </div>
                 {% image block.value max-300x300 %}
             {% else %}
+                <div style="border: 3px solid #73AD21;">
+                    <h2>{{block.block_type}}</h2>
+                </div>
                 {% include_block block %}
             {% endif %}
     {% endfor %}

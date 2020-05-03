@@ -4,18 +4,34 @@
 {% load wagtailimages_tags %}
 
 {#{% block body_class %}template-homepage{% endblock %}#}
+{% comment %}
+{% block extra_css %}
+    <style>
+        .btgrid131 {
+          display: grid;
+          grid-template-columns: 1fr 3fr 1fr;
+        }
+        .btgrid121 {
+          display: grid;
+          grid-template-columns: 1fr 2fr 1fr;
+        }
+        .btbounded-p { 
+            border: 1px solid #73AD21;
+            padding: 10px;
+        }
+    </style>
+{% endblock extra_css %}
+{% endcomment %}
 
 {% block content %}
-<div class="btcenter">
-    {% image page.background_image max-400x300 %}
-    {{ page.rtf_1|richtext  }}
-    {% for block in page.body %}
-        <h2>{{block.block_type}}</h2>
-        {% if block.block_type == "image" %}
-            {% image block.value max-300x300 %}
-        {% else %}
-            {% include_block block %}
-        {% endif %}
-    {% endfor %}
+<div class="btgrid131">
+    <div><p class="btbounded-p">Hello left</p></div>
+    <div class="btbounded-p"><p>Hello center</p></div>
+    <div><p class="btbounded-p">Hello right</p></div>
+</div>
+<div class="btgrid131">
+    <div><p class="btbounded-p">Hello left</p></div>
+    <div class="btbounded-p"><p>Hello center</p></div>
+    <div><p class="btbounded-p">Hello right</p></div>
 </div>
 {% endblock content %}
