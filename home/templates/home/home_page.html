@@ -6,17 +6,12 @@
 {#{% block body_class %}template-homepage{% endblock %}#}
 
 {% block content %}
-<div class="btgrid1">
-    <div><p class="btbounded-p">Hello left</p></div>
-</div>
-<div class="btgrid131">
-    <div><p class="btbounded-p">Hello left</p></div>
-    <div class="btbounded-p"><p>Hello center</p></div>
-    <div><p class="btbounded-p">Hello right</p></div>
-</div>
-<div class="btgrid121">
-    <div><p class="btbounded-p">Hello left</p></div>
-    <div class="btbounded-p"><p class="btbounded-p">Hello center</p></div>
-    <div><p class="btbounded-p">Hello right</p></div>
-</div>
+    <div class="btcontainer" align="center">
+        {#<div class="btitem-header"><h1>Header</h1></div>#}
+        <div class="btitem-header" font-family="Times New Roman!important"><p/><p/><p/><b>BILL TORCASO DOT ORG</b></div>
+        <div class="btitem-nav">Navigation</div>
+        <div class="btitem-main">Main</div>
+        <div class="btitem-sidebar">Sidebar:<br/>Recent Blog entries, etc.</div>
+        <div class="btitem-footer"><i><p/><p/>torcasobill@gmail.com</i></div>
+    </div>
 {% endblock content %}

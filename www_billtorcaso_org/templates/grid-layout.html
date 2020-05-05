@@ -8,23 +8,47 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" type="text/css" href="">
         <style>
-        .grid121 {
-          display: grid;
-          grid-template-columns: 1fr 2fr 1fr;
-        }
-        .bounded-p { 
-            border: 3px solid #73AD21;
-            padding: 10px;
-        }
+            .item-header {
+              grid-area: header;
+              border: 1px solid #73AD21;
+            }
+            .item-main {
+              grid-area: main;
+              border: 1px solid #73AD21;
+            }
+            .item-nav {
+              grid-area: nav;
+              border: 1px solid #73AD21;
+            }
+            .item-sidebar {
+              grid-area: sidebar;
+              border: 1px solid #73AD21;
+              height: 400px;
+            }
+            .item-footer {
+              grid-area: footer;
+              border: 1px solid #73AD21;
+            }
+
+            .container {
+              display: grid;
+              <!--grid-template-columns: 50px 50px 50px 50px;-->
+              grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+              grid-template-rows: 1fr 4fr 1fr;
+              grid-template-areas:
+                "header header header header header header"
+                "nav main main main main sidebar"
+                "footer footer footer footer footer footer";
+            }
         </style>
     </head>
-    <body>
-        <div class="grid121">
-            <p class="bounded-p">Hello, item 1!</p>
-            <p class="bounded-p">Hello, item 2!</p>
-            <p class="bounded-p">Hello, item 3!</p>
-            <p class="bounded-p">Hello, item 4!</p>
-            <p class="bounded-p">Hello, item 5!</p>
-        </div>
+    <body align="center">
+        <div class="container" align="center">
+            <div class="item-header">Header: Foobar! Moomar?</div>
+            <div class="item-nav">Nav: Foobar! Moomar?</div>
+            <div class="item-main">Main: Foobar! Moomar?</div>
+            <div class="item-sidebar">Sidebar: Foobar! Moomar?</div>
+            <div class="item-footer">Footer: Foobar! Moomar?</div>
+            </div>
     </body>
 </html>
