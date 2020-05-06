@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load navigation_tags static %}
 
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
@@ -8,10 +9,25 @@
 {% block content %}
     <div class="btcontainer" align="center">
         {#<div class="btitem-header"><h1>Header</h1></div>#}
-        <div class="btitem-header" font-family="Times New Roman!important"><p/><p/><p/><b>BILL TORCASO DOT ORG</b></div>
-        <div class="btitem-nav">Navigation</div>
-        <div class="btitem-main">Main</div>
-        <div class="btitem-sidebar">Sidebar:<br/>Recent Blog entries, etc.</div>
-        <div class="btitem-footer"><i><p/><p/>torcasobill@gmail.com</i></div>
+        <div class="btitem-header" font-family="Times New Roman!important"><p/><p/><p/><b>BILL TORCASO DOT ORG</b>
+        </div>
+        <div class="btitem-nav">
+            Navigation
+        </div>
+        <div class="btitem-main">
+            Main
+        </div>
+        <div class="btitem-sidebar">
+            Sidebar:<br/>
+            Recent Blog entries, etc.
+        </div>
+        <div class="btitem-footer">
+            <i><p/><p/>torcasobill@gmail.com</i>
+            <div >
+                <p>{% page_objects_count %}</p>
+                {% page_objects_all %}
+                {% footer_text_get %}
+            </div>
+        </div>
     </div>
 {% endblock content %}

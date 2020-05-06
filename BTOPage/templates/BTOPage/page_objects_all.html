@@ -1,0 +1,5 @@
+{% for this_page in page_objects_all %}
+    <p>[{{this_page.title}}] AND [{{this_page.url}}]</p>
+{% empty %}
+    <h3>PANIC! there are no pages! What happened???</h1>
+{% endfor %}
