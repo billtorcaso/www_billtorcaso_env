@@ -1,7 +1,7 @@
 ﻿.btcontainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 9fr 1fr;
+  grid-template-rows: 1fr 3fr 1fr;
   grid-template-areas:
     "header header header header header header"
     "nav main main main main sidebar"
@@ -9,10 +9,13 @@
 }
 .btitem-header {
   grid-area: header;
+  vertical-align: middle;
+  color:black;
   font-family: "Times New Roman", Times, serif;
   border: 1px solid #73AD21;
-  margin: 4px;
-  padding: 4px;
+  margin: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 .btitem-main {
   grid-area: main;
@@ -98,7 +101,8 @@ legend{color:inherit;display:table;max-width:100%;padding:0;white-space:normal}t
 [type=search]::-webkit-search-decoration{-webkit-appearance:none}
 ::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}
 /* End extract */
-html,body{font-family:Verdana,sans-serif;font-size:15px;line-height:1.5}html{overflow-x:hidden}
+/***html,body{font-family:Verdana,sans-serif;font-size:15px;line-height:1.5}html{overflow-x:hidden}***/
+html,body{font-family:Verdana,sans-serif;font-size:15px;line-height:1.0}html{overflow-x:hidden}
 h1{font-size:36px}h2{font-size:30px}h3{font-size:24px}h4{font-size:20px}h5{font-size:18px}h6{font-size:16px}.w3-serif{font-family:serif}
 h1,h2,h3,h4,h5,h6{font-family:"Segoe UI",Arial,sans-serif;font-weight:400;margin:10px 0}.w3-wide{letter-spacing:4px}
 hr{border:0;border-top:1px solid #eee;margin:20px 0}

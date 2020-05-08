@@ -6,14 +6,11 @@ from wagtail.core.models import Page
 register = template.Library()
 
 
-@register.inclusion_tag('BTOPage/page_objects_count.html', takes_context=True)
-def page_objects_count(context):
+@register.simple_tag()
+def page_objects_count():
 
-    page_objects_count = Page.objects.count() - 1  # Ignore the ROOT page, it is not renderable
-
-    return {
-        'page_objects_count': page_objects_count,
-    }
+    count_of_pages = Page.objects.count() - 1  # Ignore the ROOT page, it is not renderable
+    return count_of_pages
 
 
 @register.inclusion_tag('BTOPage/page_objects_all.html', takes_context=True)
@@ -27,16 +24,14 @@ def page_objects_all(context):
 
 
 
-@register.inclusion_tag('footer.html', takes_context=True)
+@register.simple_tag(takes_context=True)
 def footer_text_get(context):
     ###footer_text = ""
     ###if FooterText.objects.first() is not None:
         ###footer_text = FooterText.objects.first().body
     footer_text="Hello, world! I am some hard-wired FooterText"
 
-    return {
-        'footer_text': footer_text,
-    }
+    return footer_text
 
 
 @register.simple_tag(takes_context=True)
