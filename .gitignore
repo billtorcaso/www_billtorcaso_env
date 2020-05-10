@@ -1,4 +1,5 @@
 db.sqlite3
 venv_www_billtorcaso_org
+static/
 media/images
 **/__pycache__
