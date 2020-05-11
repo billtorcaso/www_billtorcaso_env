@@ -16,7 +16,7 @@ def page_objects_count():
 @register.inclusion_tag('BTOPage/page_objects_all.html', takes_context=True)
 def page_objects_all(context):
 
-    page_objects_all = [thing for thing in Page.objects.all() if thing.title != "Root"]
+    page_objects_all = [thing for thing in Page.objects.all() if thing.live and thing.title != "Root"]
 
     return {
         'page_objects_all': page_objects_all,
