@@ -1,0 +1,5 @@
+{% for this_page in page_objects_all %}
+    <p><a href="{{this_page.url}}">{{this_page.title}}</a></p>
+{% empty %}
+    <h3>PANIC! there are no pages! What happened???</h3>
+{% endfor %}
