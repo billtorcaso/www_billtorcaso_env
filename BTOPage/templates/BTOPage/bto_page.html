@@ -8,25 +8,30 @@
 
 {% block content %}
     <div class="btcontainer" align="center">
-        <div class="btitem-header">
+        <div class="btitem-header" style="font-size:16">
             {% get_site_root as site_root %}
-            <a href="{{ site_root.url }}"><b style="font-size:36px">BILL TORCASO DOT ORG</b></a>
+            <a href="{{ site_root.url }}" style="float:left"><b style="font-size:24px">BILL TORCASO DOT ORG</b></a>
+            <br/>
+            <p>{{ page.title }}</p>
         </div>
         <div class="btitem-nav">
+            <h3>About</h3>
+            <p>This is the website of Bill Torcaso.</p>
+            <p>You can find my photos and other images, my blog(s), and kid-videos that
+               I made together with Kate Roper.</p>
+        </div>
+        <div class="btitem-main">
+        </div>
+        <div class="btitem-sidebar">
             <h3>Navigation</h3>
             {% page_objects_all %}
         </div>
-        <div class="btitem-main">
-            <p>Main</p>
-        </div>
-        <div class="btitem-sidebar">
-            <h3>Sidebar</h3>
-            Blog entries, etc.
-        </div>
         <div class="btitem-footer">
             <div >
-                <p>{% footer_text_get %}</p>
-                <p><i>torcasobill@gmail.com</i></p>
+                {#<p>{% footer_text_get %}</p>#}
+                {#<p><i>torcasobill@gmail.com</i></p>#}
+            <h3>Navigation</h3>
+            {% page_objects_all %}
             </div>
         </div>
     </div>

@@ -11,7 +11,6 @@ from wagtail.images.blocks import ImageChooserBlock
 from wagtail.images.edit_handlers import ImageChooserPanel
 
 
-
 class BTOPage(Page):
     background_image = models.ForeignKey(
         'wagtailimages.Image',
@@ -33,3 +32,9 @@ class BTOPage(Page):
         FieldPanel('author'),
         StreamFieldPanel('body'),
     ]
+
+
+class BTOHeroPage(BTOPage):
+    pass
+
+
