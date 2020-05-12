@@ -9,23 +9,29 @@ import wagtail.images.blocks
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0003_auto_20200427_2151'),
+        ("home", "0003_auto_20200427_2151"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='homepage',
-            name='author',
-            field=models.CharField(default='William D. Torcaso', max_length=64),
+            model_name="homepage",
+            name="author",
+            field=models.CharField(default="William D. Torcaso", max_length=64),
         ),
         migrations.AddField(
-            model_name='homepage',
-            name='rtf_1',
+            model_name="homepage",
+            name="rtf_1",
             field=wagtail.core.fields.RichTextField(blank=True),
         ),
         migrations.AlterField(
-            model_name='homepage',
-            name='body',
-            field=wagtail.core.fields.StreamField([('heading', wagtail.core.blocks.CharBlock(classname='full title')), ('rtf_2', wagtail.core.blocks.RichTextBlock()), ('image', wagtail.images.blocks.ImageChooserBlock())]),
+            model_name="homepage",
+            name="body",
+            field=wagtail.core.fields.StreamField(
+                [
+                    ("heading", wagtail.core.blocks.CharBlock(classname="full title")),
+                    ("rtf_2", wagtail.core.blocks.RichTextBlock()),
+                    ("image", wagtail.images.blocks.ImageChooserBlock()),
+                ]
+            ),
         ),
     ]

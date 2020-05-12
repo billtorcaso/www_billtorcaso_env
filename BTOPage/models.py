@@ -11,25 +11,26 @@ from wagtail.images.blocks import ImageChooserBlock
 from wagtail.images.edit_handlers import ImageChooserPanel
 
 
-
 class BTOPage(Page):
     background_image = models.ForeignKey(
-        'wagtailimages.Image',
+        "wagtailimages.Image",
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        related_name='+'
+        related_name="+",
     )
 
     author = models.CharField(max_length=64, default="William D. Torcaso")
-    body = StreamField([
-        ('heading', blocks.CharBlock(classname="full title")),
-        ('paragraph', blocks.RichTextBlock()),
-        ('image', ImageChooserBlock()),
-    ])
+    body = StreamField(
+        [
+            ("heading", blocks.CharBlock(classname="full title")),
+            ("paragraph", blocks.RichTextBlock()),
+            ("image", ImageChooserBlock()),
+        ]
+    )
 
     content_panels = Page.content_panels + [
-        ImageChooserPanel('background_image'),
-        FieldPanel('author'),
-        StreamFieldPanel('body'),
+        ImageChooserPanel("background_image"),
+        FieldPanel("author"),
+        StreamFieldPanel("body"),
     ]

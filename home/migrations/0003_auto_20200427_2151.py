@@ -8,19 +8,25 @@ import wagtail.core.fields
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('wagtailimages', '0001_squashed_0021'),
-        ('home', '0002_create_homepage'),
+        ("wagtailimages", "0001_squashed_0021"),
+        ("home", "0002_create_homepage"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='homepage',
-            name='background_image',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='wagtailimages.Image'),
+            model_name="homepage",
+            name="background_image",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                related_name="+",
+                to="wagtailimages.Image",
+            ),
         ),
         migrations.AddField(
-            model_name='homepage',
-            name='body',
+            model_name="homepage",
+            name="body",
             field=wagtail.core.fields.RichTextField(blank=True),
         ),
     ]
