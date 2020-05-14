@@ -34,3 +34,7 @@ class BTOPage(Page):
         FieldPanel("author"),
         StreamFieldPanel("body"),
     ]
+
+
+class BTOResponsivePage(BTOPage):
+    pass
