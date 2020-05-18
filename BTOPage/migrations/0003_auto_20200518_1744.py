@@ -9,19 +9,23 @@ import wagtail.images.blocks
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('wagtailcore', '0045_assign_unlock_grouppagepermission'),
-        ('wagtailforms', '0004_add_verbose_name_plural'),
-        ('wagtailredirects', '0006_redirect_increase_max_length'),
-        ('BTOPage', '0002_btoresponsivepage'),
+        ("wagtailcore", "0045_assign_unlock_grouppagepermission"),
+        ("wagtailforms", "0004_add_verbose_name_plural"),
+        ("wagtailredirects", "0006_redirect_increase_max_length"),
+        ("BTOPage", "0002_btoresponsivepage"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='btopage',
-            name='body',
-            field=wagtail.core.fields.StreamField([('heading', wagtail.core.blocks.CharBlock(classname='full title')), ('rtblock', wagtail.core.blocks.RichTextBlock()), ('image', wagtail.images.blocks.ImageChooserBlock())]),
+            model_name="btopage",
+            name="body",
+            field=wagtail.core.fields.StreamField(
+                [
+                    ("heading", wagtail.core.blocks.CharBlock(classname="full title")),
+                    ("rtblock", wagtail.core.blocks.RichTextBlock()),
+                    ("image", wagtail.images.blocks.ImageChooserBlock()),
+                ]
+            ),
         ),
-        migrations.DeleteModel(
-            name='BTOResponsivePage',
-        ),
+        migrations.DeleteModel(name="BTOResponsivePage",),
     ]
