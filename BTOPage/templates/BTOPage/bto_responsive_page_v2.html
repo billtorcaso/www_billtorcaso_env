@@ -10,12 +10,11 @@
     <style>
         /* Bill torcaso added these things*/
         .page-basic-wrapper {
-          {% if XXXpage.background_image %}
+          {% if page.background_image %}
             {% image page.background_image original as bground_image %}
-          {#background: url({% image page.background_image min-500x200 %}) center;#}
-          background: url({{bground_image.url}}) center;
+            background: url({{bground_image.url}}) center;
           {% else %}
-          background: url('http://localhost:8000/media/images/Nook-Dawn-2013.max-165x165.jpg') center;
+            background: url('http://localhost:8000/media/images/Nook-Dawn-2013.max-165x165.jpg') center;
           {% endif %}
           background-size: cover;
           margin-right: auto;
