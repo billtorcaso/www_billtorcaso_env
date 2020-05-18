@@ -7,18 +7,26 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('BTOPage', '0001_initial'),
+        ("BTOPage", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='BTOResponsivePage',
+            name="BTOResponsivePage",
             fields=[
-                ('btopage_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='BTOPage.BTOPage')),
+                (
+                    "btopage_ptr",
+                    models.OneToOneField(
+                        auto_created=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        parent_link=True,
+                        primary_key=True,
+                        serialize=False,
+                        to="BTOPage.BTOPage",
+                    ),
+                ),
             ],
-            options={
-                'abstract': False,
-            },
-            bases=('BTOPage.btopage',),
+            options={"abstract": False,},
+            bases=("BTOPage.btopage",),
         ),
     ]
