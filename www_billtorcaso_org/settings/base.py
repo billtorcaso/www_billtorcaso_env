@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     "BTOPage",
     "home",
     "search",
+    ###"django_extensions",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
     "wagtail.embeds",
@@ -142,6 +143,16 @@ STATIC_URL = "/static/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 
+
+# Image settings
+
+WAGTAILIMAGES_MAX_UPLOAD_SIZE = 20 * 1024 * 1024  # i.e. 20MB
+WAGTAILIMAGES_MAX_IMAGE_PIXELS = 128000000  # i.e. 128 megapixels
+WAGTAILIMAGES_FEATURE_DETECTION_ENABLED = False  # depends on having OpenCV installed
+WAGTAILIMAGES_INDEX_PAGE_SIZE = 20
+WAGTAILIMAGES_USAGE_PAGE_SIZE = 20
+WAGTAILIMAGES_CHOOSER_PAGE_SIZE = 12
+WAGTAIL_USAGE_COUNT_ENABLED = True  # this also applies to snippets and documents.
 
 # Wagtail settings
 
