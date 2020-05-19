@@ -231,10 +231,29 @@
               <br/>
               {% image page.background_image min-500x200 %}
               <br/>
-              {#{% for thing in page.body %}#}
-              {% for thing in page.info_stream %}
-                  <p style="color:white">{{ thing }}</p>
+              {% for thing in page.body %}
+                  <p style="color:white; border:1px solid yellow">{{ thing }}</p>
               {% endfor %}
+                <ul>
+                  {% for thing in page.info_stream %}
+                      <p style="color:white; border:1px dashed yellow">{{ thing }}</p>
+                  {% endfor %}
+                </ul>
+                <ul>
+                  {% for thing in page.info_stream %}
+                      {% image thing.image min-500x200 %}
+                      <li>
+                        <figure>
+                          <!-- Photo by Quentin Dr on Unsplash -->
+                          {% image page.background_image min-500x200 as figure_image %}
+                          {#{% image thing.image min-500x200 as figure_image %}#}
+                          {#<img src="{{ figure_image.image.url }}" alt="I am alt text">#}
+                          <img src="{{ figure_image.url }}" alt="I am alt text">
+                          <figcaption><h3 style="color:red">Hello:{{ thing }}:World</h3></figcaption>
+                        </figure>
+                      </li>
+                  {% endfor %}
+                </ul>
           </section>
           <section class="breweries" id="breweries">
             <ul>

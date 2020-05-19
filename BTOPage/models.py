@@ -51,6 +51,8 @@ class BTOInfoSnippet(models.Model):
     ]
     template = "BTOPage/bto_responsive_page_v2.html"
 
+    def __str__(self):
+        return self.caption
 
 class BTOPage(Page):
     background_image = models.ForeignKey(
