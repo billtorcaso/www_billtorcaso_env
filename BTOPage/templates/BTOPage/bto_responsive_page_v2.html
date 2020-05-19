@@ -163,6 +163,10 @@
           </section>
           <section>
             {% image page.background_image min-500x200 %}
+            <p style="color:white">{{ page.author }}</p>
+            {% for thing in page.body %}
+                <p style="color:white">{{ thing }}</p>
+            {% endfor %}
           </section>
           <section class="breweries" id="breweries">
             <ul>

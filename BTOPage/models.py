@@ -23,7 +23,7 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 @register_snippet
 class BTOInfoSnippet(models.Model):
     """
-    An InfoSnippet is a 4-tuple of (image, caption, info, link).
+    An InfoSnippet is a 3-tuple of (image, caption, info).
     It is typically used in CSS within an unordered list, in a way 
     that makes a responsive display of many InfoSnippets.
     """
@@ -37,16 +37,13 @@ class BTOInfoSnippet(models.Model):
     )
     caption = models.CharField(max_length=80)
     info = RichTextBlock()
-    link_page = PageChooserBlock(
-        required=True, label="Internal Link", help_text="Required link to a page on BTO"
-    )
 
     panels = [
         ImageChooserPanel("image"),
         FieldPanel("caption"),
         FieldPanel("info"),
-        PageChooserPanel("link_page"),
     ]
+    template = "BTOPage/bto_responsive_page_v2.html"
 
 
 class BTOPage(Page):
@@ -83,20 +80,3 @@ class BTOPage(Page):
     ]
 
 
-###class BTOResponsivePage(BTOPage):
-###    """
-###    A ResponsivePage is an experiment in the CSS to make
-###    a BTOPage responsive.  It may collapse back into BTOPage
-###    when the experiment is done.
-###    """
-###
-###    info_stream = StreamField([("info_snippet", SnippetChooserBlock(BTOInfoSnippet))],
-###        null=True,
-###        blank=True,)
-###    template = "BTOPage/bto_responsive_page_v2.html"
-###
-###    content_panels = BTOPage.content_panels + [
-###        StreamFieldPanel("info_stream"),
-###    ]
-###
-###
