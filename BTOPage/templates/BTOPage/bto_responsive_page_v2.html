@@ -239,21 +239,20 @@
                       <p style="color:white; border:1px dashed yellow">{{ thing }}</p>
                   {% endfor %}
                 </ul>
+                <hr/>
                 <ul>
                   {% for thing in page.info_stream %}
                       {% image thing.image min-500x200 %}
                       <li>
                         <figure>
-                          <!-- Photo by Quentin Dr on Unsplash -->
-                          {% image page.background_image min-500x200 as figure_image %}
-                          {#{% image thing.image min-500x200 as figure_image %}#}
-                          {#<img src="{{ figure_image.image.url }}" alt="I am alt text">#}
-                          <img src="{{ figure_image.url }}" alt="I am alt text">
+                          {% image thing.image min-500x200 as figure_image %}
+                          <img src="http://localhost:8000/media/original_images/IMG-3265.JPG{{ figure_image.url }}" alt="I am alt text">
                           <figcaption><h3 style="color:red">Hello:{{ thing }}:World</h3></figcaption>
                         </figure>
                       </li>
                   {% endfor %}
                 </ul>
+                <hr/>
           </section>
           <section class="breweries" id="breweries">
             <ul>
