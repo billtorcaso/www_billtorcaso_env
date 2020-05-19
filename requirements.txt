@@ -1,5 +1,6 @@
 Django>=3.0.6,<3.1
-wagtail>=2.8.2,<2.9
-###### ---  Bill likes to have these two modules:
-###django-extensions
-###ipython
+wagtail>=2.9
+wagtailmedia>=0.5.0
+### ---  Bill likes to have these two modules:
+django-extensions
+ipython
