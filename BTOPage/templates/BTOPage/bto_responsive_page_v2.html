@@ -14,7 +14,7 @@
             {% image page.background_image original as bground_image %}
             background: url({{bground_image.url}}) center;
           {% else %}
-            background: url('http://localhost:8000/media/images/Nook-Dawn-2013.max-165x165.jpg') center;
+            background: url('http://localhost:8000/media/images/Elephant_carrying_lion_cub.max-165x165.jpg') center;
           {% endif %}
           background-size: cover;
           margin-right: auto;
@@ -81,6 +81,71 @@
           padding: 1rem;
           margin-top: .75rem;
         }
+
+        /* BTOPage styles */
+        .btosection {
+          padding: 2rem;
+          padding: 4rem 2rem;
+          /* grid styles */
+          {#display: grid;#}
+          display: block;
+          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+          align-items: center;
+          border: 1px solid yellow;
+          border-radius: .5rem;
+        }
+
+        .btosection > ul {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          grid-gap: 1rem;
+        }
+
+        .btosection > ul > li {
+          /***border: 1px solid #E2E2E2;***/
+          border: 1px solid green;
+          border-radius: .5rem;
+        }
+
+        .btosection > ul > li > figure {
+          max-height: 220px;
+          overflow: hidden;
+          border-top-left-radius: .5rem;
+          border-top-right-radius: .5rem;
+          position: relative;
+        }
+
+        .btosection > ul > li > figure > img {
+          width: 100%;
+        }
+
+        .btosection > ul > li > figure > figcaption {
+          position: absolute;
+          bottom: 0;
+          color: lightblue;
+          background-color: rgba(0,0,0,.7);
+          width: 100%;
+        }
+
+        .btosection > ul > li > figure > figcaption > h3 {
+          color: lightblue;
+          padding: .75rem;
+          font-size: 1.25rem;
+        }
+
+        .btosection > ul > li > p {
+          font-size: 1rem;
+          line-height: 1.5;
+          padding: 1rem .75rem;
+          color: #666666;
+          color: lightblue;
+        }
+
+        .btosection > ul > li > a {
+          padding: .5rem 1rem;
+          margin: .5rem;
+        }
+
 
         /* breweries styles */
         .breweries {
@@ -161,12 +226,15 @@
               <a href="#breweries">Browse Breweries</a>
             </article>
           </section>
-          <section>
-            {% image page.background_image min-500x200 %}
-            <p style="color:white">{{ page.author }}</p>
-            {% for thing in page.body %}
-                <p style="color:white">{{ thing }}</p>
-            {% endfor %}
+          <section class="btosection" id="btosection">
+              <p style="color:white">{{ page.author }}</p>
+              <br/>
+              {% image page.background_image min-500x200 %}
+              <br/>
+              {#{% for thing in page.body %}#}
+              {% for thing in page.info_stream %}
+                  <p style="color:white">{{ thing }}</p>
+              {% endfor %}
           </section>
           <section class="breweries" id="breweries">
             <ul>
