@@ -1,13 +1,16 @@
 from django.db import models
-###from .utils import BTOInfoSnippet
 
 
 from wagtail.core.blocks import (
     CharBlock,
-    RichTextBlock,
     PageChooserBlock,
+    RichTextBlock,
+    TextBlock,
 )
+
+from wagtail.core.blocks import TextBlock
 from wagtail.core.fields import StreamField
+from wagtail.core.fields import RichTextField
 from wagtail.core.models import Page
 
 from wagtail.snippets.blocks import SnippetChooserBlock
@@ -36,7 +39,10 @@ class BTOInfoSnippet(models.Model):
         related_name="+",
     )
     caption = models.CharField(max_length=80)
-    info = RichTextBlock()
+###    info = TextBlock()
+    info = models.CharField(max_length=256, default="William D. Torcaso",
+        null=True,
+        blank=True,)
 
     panels = [
         ImageChooserPanel("image"),
