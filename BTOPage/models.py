@@ -51,6 +51,32 @@ class BTOInfoSnippet(models.Model):
         return self.caption
 
 
+@register_snippet
+class BTOPageInfoSnippet(BTOInfoSnippet):
+    """ An PageInfoSnippet is a subclass of InfoSnippet, and presents a
+        4-tuple of (image, caption, info, link_page).  
+        It is typically used in CSS within an unordered list, 
+        in a way that makes a responsive display of many PageInfoSnippets.
+        The HOME page has many PageInfoSnippets for easy navigation to topic-pages.
+    """
+
+    link_page = models.ForeignKey(
+        'wagtailcore.Page',
+        null=False,
+        blank=False,
+        on_delete=models.CASCADE,
+        related_name='+',
+    )
+
+    panels = BTOInfoSnippet.panels + [
+        PageChooserPanel('link_page', 'BTOPage'),
+    ]
+    template = "BTOPage/bto_responsive_page_v2.html"
+
+    def __str__(self):
+        return self.caption
+
+
 class BTOPage(Page):
     background_image = models.ForeignKey(
         "wagtailimages.Image",
