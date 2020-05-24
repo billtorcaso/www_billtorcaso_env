@@ -23,6 +23,14 @@ class BlogIndexPage(Page):
         FieldPanel('intro', classname="full")
     ]
 
+    def get_context(self, request):
+        # Update context to include only published posts, ordered by reverse-chron
+        context = super().get_context(request)
+        blogpages = self.get_children().live().order_by('-first_published_at')
+        context['ctx_blogpages'] = blogpages
+        print(f"context['ctx_blogpages'] == '{context['ctx_blogpages']}'")
+        return context
+
 
 class BlogPage(Page):
 

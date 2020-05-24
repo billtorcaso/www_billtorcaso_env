@@ -2,7 +2,7 @@
 {% load wagtailcore_tags navigation_tags wagtailimages_tags %}
 
 {% block content %}
-    {% include "base/include/header-index.html" %}
+{#{% include "base/include/header-index.html" %}#}
 
     <div class="container">
         {% if tag %}
@@ -22,8 +22,9 @@
         {% endif %}
 
         <div class="row row-eq-height blog-list">
-            {% if posts %}
-                {% for blog in posts %}
+          <p>ctx_blogpages == '{{ ctx_blogpages }}'</p>
+            {% if ctx_blogpages %}
+                {% for blog in ctx_blogpages %}
                     <li class="col-xs-12 col-sm-6 col-md-3 blog-list-item">
                         <a href="{% pageurl blog %}">
                             <div class="image">
