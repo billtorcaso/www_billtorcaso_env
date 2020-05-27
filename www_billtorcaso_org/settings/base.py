@@ -146,7 +146,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 
 # Admin Dashboard settings
-WAGTAILADMIN_RECENT_EDITS_LIMIT = 10
+WAGTAILADMIN_RECENT_EDITS_LIMIT = 20
 
 # Image settings
 
