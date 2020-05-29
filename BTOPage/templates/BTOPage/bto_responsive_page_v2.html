@@ -228,6 +228,17 @@
               <p style="color:black">This is the personal website of Bill Torcaso. It contains a great many photographs,
               blogs on a couple of different topics (programming, politics, ...).</p>
                 {#<p><a href="#btosection">Browse</a></p>#}
+          {% if self.get_ancestors|length > 1 %}
+            <ul class="cmpnt-breadcrumbs wrapper">
+                <li><a href="/"><i class="icon-home"></i><span>Home</span></a></li>
+                {% for page in self.get_ancestors %}
+                    {% if page.is_root == False and page.url != '/'%}
+                    <li><a href="{% pageurl page %}">{{ page.title }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                <li class="active"><a href="{{self.url}}">{{ self.title }}</a></li>
+            </ul>
+          {% endif %}
             </article>
           </section>
           <section class="btosection" id="btosection">

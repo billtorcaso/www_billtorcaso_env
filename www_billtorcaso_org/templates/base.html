@@ -20,7 +20,10 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/www_billtorcaso_org.css' %}">
         {% block extra_css %} {# Override this in templates to add extra stylesheets #} {% endblock %}
     </head>
-    <body style="background-color:#FEDCD3; border: 1px dashed black;">
+    <body min-height: 100vh; 
+          min-width:100vw;
+          style="background-color:#FEDCD3; border: 1px dashed black;"
+    >
         {#{% wagtailuserbar %}#}
         {% block content %} {% endblock %}
         {# Global javascript #}

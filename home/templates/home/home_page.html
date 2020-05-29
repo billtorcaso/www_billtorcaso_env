@@ -14,10 +14,34 @@
     <div class="btitem-header" style="vertical-align:top">
       <b style="font-size:36px">BILL TORCASO DOT ORG</b>
       <p><i>torcasobill@gmail.com</i></p>
+          {#{% breadcrumbs %} this is not ready yet. #}
+          <hr/>
+          {% if self.get_ancestors|length > 1 %}
+            <ul class="cmpnt-breadcrumbs wrapper">
+                <li><a href="/"><i class="icon-home"></i><span>Home</span></a></li>
+                {% for page in self.get_ancestors %}
+                    {% if page.is_root == False and page.url != '/'%}
+                    <li><a href="{% pageurl page %}">{{ page.title }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                <li class="active"><a href="{{self.url}}">{{ self.title }}</a></li>
+            </ul>
+          {% endif %}
     </div>
     <div class="btcontent">
       <div class="btitem-nav">
           <h3>Navigation</h3>
+          {% if self.get_ancestors|length > 1 %}
+            <ul class="cmpnt-breadcrumbs wrapper">
+                <li><a href="/"><i class="icon-home"></i><span>Home</span></a></li>
+                {% for page in self.get_ancestors %}
+                    {% if page.is_root == False and page.url != '/'%}
+                    <li><a href="{% pageurl page %}">{{ page.title }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                <li class="active"><a href="{{self.url}}">{{ self.title }}</a></li>
+            </ul>
+          {% endif %}
           {% page_objects_all %}
       </div>
       <div class="btitem-main">
