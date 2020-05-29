@@ -108,7 +108,8 @@
         }
 
         .btosection > ul > li > figure {
-          max-height: 220px;
+          /***max-height: 220px;***/
+          max-height: 40vh;
           overflow: hidden;
           border-top-left-radius: .5rem;
           border-top-right-radius: .5rem;
@@ -239,14 +240,12 @@
                           <figcaption>
                             <h3>{{ thing.value.caption }}</h3>
                           </figcaption>
-                          {#<p>{{ thing.value.info }}</p>#}
+                          <p>{{ thing.value.info }}</p>
                         </figure>
-                          {# Always bad for responsive: {% image thing.value.image original %}#}
                       </li>
                   {% endfor %}
                 </ul>
           </section>
-          {% comment %}
           <section class="breweries" id="breweries">
             <ul>
               <li>
@@ -350,12 +349,7 @@
               </li>
             </ul>
           </section>
-          {% endcomment %}
         </main>
-        <footer>
-                <p>{% footer_text_get %}</p>
-                <p>&copy; 2020 billtorcaso.org</p>
-        </footer>
         <div class="btitem-footer">
             <div >
                 <p>{% footer_text_get %}</p>
@@ -363,4 +357,5 @@
             </div>
         </div>
     </div>
+    </section>
 {% endblock content %}
