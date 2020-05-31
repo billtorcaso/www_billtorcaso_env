@@ -1,2 +1,2 @@
 README
-This is a test.
+This is based on origin/dev/6.
