@@ -61,15 +61,15 @@ class BTOPageInfoSnippet(BTOInfoSnippet):
     """
 
     link_page = models.ForeignKey(
-        'wagtailcore.Page',
+        "wagtailcore.Page",
         null=False,
         blank=False,
         on_delete=models.CASCADE,
-        related_name='+',
+        related_name="+",
     )
 
     panels = BTOInfoSnippet.panels + [
-        PageChooserPanel('link_page', 'BTOPage'),
+        PageChooserPanel("link_page", "BTOPage"),
     ]
     template = "BTOPage/bto_responsive_page_v2.html"
 
