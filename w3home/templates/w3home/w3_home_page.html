@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load navigation_tags static %}
+
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+{% block extra_css %}
+  <link rel="stylesheet" type="text/css" href="w3.css">
+{% endblock extra_css %}
+
+{% block content %}
+  <div style="min-height:100vh; min-width:100vw;">
+    <div style="border:1px solid red; text-align:center; vertical-align:top">
+      <b style="font-size:36px">BILL TORCASO DOT ORG</b>
+    </div>
+    <div >
+      <div >
+          <h3>Navigation</h3>
+          {% page_objects_all %}
+      </div>
+      <div >
+          <p>Main</p>
+          {% get_site_root as site_root %}
+          <a href="{{ site_root.url }}">{{ site_root.title }}</a>
+      </div>
+      <div >
+          <h3>Sidebar</h3>
+          Blog entries, etc.
+      </div>
+    </div>
+    <footer style="border:1px solid red; text-align:center">
+      {% footer_text_get %}
+    </footer>
+  </div>
+{% endblock content %}
