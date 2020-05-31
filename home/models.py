@@ -30,6 +30,7 @@ class HomePage(Page):
         ]
     )
 
+    template = "std-3-wide.html"
     content_panels = Page.content_panels + [
         ImageChooserPanel("background_image"),
         FieldPanel("author", classname="full"),

@@ -5,7 +5,6 @@ from wagtail.core.models import Page
 
 register = template.Library()
 
-
 @register.simple_tag()
 def page_objects_count():
 
@@ -42,7 +41,8 @@ def get_site_root(context):
     # This returns a core.Page. The main menu needs to have the site.root_page
     # defined else will return an object attribute error ('str' object has no
     # attribute 'get_children')
-    return context["request"].site.root_page
+    ###return context["request"].site.root_page
+    return context['request'].site.root_page.specific
 
 
 def has_children(page):

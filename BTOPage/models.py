@@ -40,12 +40,12 @@ class BTOInfoSnippet(models.Model):
         max_length=256, default="William D. Torcaso", null=True, blank=True,
     )
 
+    template = "BTOPage/bto_responsive_page_v2.html"
     panels = [
         ImageChooserPanel("image"),
         FieldPanel("caption"),
         FieldPanel("info"),
     ]
-    template = "BTOPage/bto_responsive_page_v2.html"
 
     def __str__(self):
         return self.caption

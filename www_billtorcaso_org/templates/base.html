@@ -17,12 +17,15 @@
         <meta name="description" content="billtorcaso.org" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {# Global stylesheets #}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/www_billtorcaso_org.css' %}">
+        {#<link rel="stylesheet" type="text/css" href="{% static 'css/www_billtorcaso_org.css' %}">#}
+        <link rel="stylesheet" type="text/css" href="w3.css">
         {% block extra_css %} {# Override this in templates to add extra stylesheets #} {% endblock %}
     </head>
-    <body style="background-color:#FEDCD3; border: 1px dashed black;">
+    <body style="background-color:#FEDCD3; border: 1px solid black;">
         {#{% wagtailuserbar %}#}
+
         {% block content %} {% endblock %}
+
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/www_billtorcaso_org.js' %}"></script>
         {% block extra_js %} {# Override this in templates to add extra javascript #} {% endblock %}
