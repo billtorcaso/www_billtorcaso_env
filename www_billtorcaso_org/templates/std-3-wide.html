@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load navigation_tags static %}
+
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+{#{% block body_class %}template-homepage{% endblock %}#}
+
+{% block extra_css %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/extra_css.css' %}">
+{% endblock extra_css %}
+{% block content %}
+  <div class="btviewport">
+    <div class="btitem-header" style="vertical-align:top">
+      <b style="font-size:36px">BILL TORCASO DOT ORG</b>
+      <p><i>torcasobill@gmail.com</i></p>
+    </div>
+    <div class="btcontent">
+      <div class="btitem-nav">
+          <h3>Navigation</h3>
+          {% page_objects_all %}
+      </div>
+      <div class="btitem-main">
+          <p>Main</p>
+          {% get_site_root as site_root %}
+          <a href="{{ site_root.url }}">{{ site_root.title }}</a>
+          <hr/><hr/>{{ page.author }}
+          <hr/><hr/>{{ page.rtf_1|richtext }}
+          <hr/><hr/>
+          {% for this_block in page.body %}
+            {{ this_block }}
+          {% endfor %}
+      </div>
+      <div class="btitem-sidebar">
+          <h3>Sidebar</h3>
+          Blog entries, etc.
+      </div>
+    </div>
+    <div class="btitem-footer" style="vertical-align:bottom">
+      {% footer_text_get %}
+    </div>
+  </div>
+{% endblock content %}
