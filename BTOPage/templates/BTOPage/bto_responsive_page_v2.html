@@ -9,7 +9,7 @@
 {% block content %}
     <style>
         /* Bill torcaso added these things*/
-        .page-basic-wrapper {
+        .btopage-basic-wrapper {
           {% if page.background_image %}
             {% image page.background_image original as bground_image %}
             background: url({{bground_image.url}}) center;
@@ -53,6 +53,7 @@
 
         /* Styles for the hero image */
         .hero {
+          border: 2px solid red;
           /* Photo by mnm.all on Unsplash */
           padding: 4rem 2rem;
           /* grid styles */
@@ -116,7 +117,7 @@
         }
 
         .btosection > ul > li > figure > img {
-          width: 100%;
+          width: auto%;
         }
 
         .btosection > ul > li > figure > figcaption {
@@ -220,7 +221,7 @@
         }
     </style>
     <div align="center">
-        <main class="page-basic-wrapper">
+        <main class="btopage-basic-wrapper">
           <section class="hero">
             <h1 style="color:mediumseagreen">BILL TORCASO DOT ORG</h1>
             <article>
