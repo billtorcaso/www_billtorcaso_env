@@ -1,34 +1,41 @@
-{% extends "base.html" %}
+{% extends "./w3home_base.html" %}
 {% load navigation_tags static %}
 
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
 
 {% block extra_css %}
-  <link rel="stylesheet" type="text/css" href="w3.css">
+<link rel="stylesheet" type="text/css" href="{% static "css/w3.css" %}">
 {% endblock extra_css %}
 
 {% block content %}
-  <div style="min-height:100vh; min-width:100vw;">
-    <div style="border:1px solid red; text-align:center; vertical-align:top">
-      <b style="font-size:36px">BILL TORCASO DOT ORG</b>
+  <div style="border:1px solid black; min-block-size:100vh; min-width:100vw;">
+    <div class="w3-center w3-teal" style="border: 10px solid yellow">
+      <b style="font-size:36px; text-align:center;">BILL TORCASO DOT ORG</b>
     </div>
-    <div >
-      <div >
+    <div class="w3-row" style="min-block-size:100vi;min-width:100vw;border:10px solid blue;">
+      {#<p>Hello, world #1!"</p>#}
+      <div class="w3-quarter w3-green" style="min-height:100vi;padding:10px;border:10px solid red;">
           <h3>Navigation</h3>
-          {% page_objects_all %}
+          {#{% page_objects_all %}#}
       </div>
-      <div >
+      <div class="w3-quarter w3-teal" style="min-height:auto;padding:10px;border:10px solid yellow;">
           <p>Main</p>
-          {% get_site_root as site_root %}
-          <a href="{{ site_root.url }}">{{ site_root.title }}</a>
+          {#{% get_site_root as site_root %}#}
+          {#<a href="{{ site_root.url }}">{{ site_root.title }}</a>#}
       </div>
-      <div >
+      {#<div  class="w3-half" style="padding:10px;border:10px solid red;">#}
+      <div class="w3-sidebar" style="padding:10px;border:10px solid red;">
           <h3>Sidebar</h3>
-          Blog entries, etc.
+          {#Blog entries, etc.#}
       </div>
+{% comment %}
+{% endcomment %}
     </div>
-    <footer style="border:1px solid red; text-align:center">
+    {#<div class="footer" style="vertical-align:bottom;min-height:20vh; border:10px solid lightblue; text-align:center">#}
+      {#<div class="footer" style="vertical-align:bottom;min-height:20vw; border:10px solid lightblue; text-align:center">#}
+        {#<div class="footer" style="vertical-align:bottom;min-height:vmax; border:10px solid lightblue; text-align:center">#}
+    <footer style="vertical-align:bottom;min-height:vmax; border:10px solid lightblue; text-align:center">
       {% footer_text_get %}
     </footer>
   </div>

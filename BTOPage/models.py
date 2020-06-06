@@ -71,10 +71,35 @@ class BTOPageInfoSnippet(BTOInfoSnippet):
     panels = BTOInfoSnippet.panels + [
         PageChooserPanel("link_page", "BTOPage"),
     ]
+    ###template = "BTOPage/bto_responsive_page_v2.html"
+
+    ###def __str__(self):
+    ###    return self.caption
+
+
+class BTOTopicPage(Page):
+    background_image = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+    )
+
+    author = models.CharField(
+        max_length=64, default="William D. Torcaso", null=True, blank=True,
+    )
+    info_snippets = StreamField(
+        [("info_snippet", SnippetChooserBlock(BTOInfoSnippet)),
+         ("page_info_snippet", SnippetChooserBlock(BTOPageInfoSnippet))], null=True, blank=True,
+    )
     template = "BTOPage/bto_responsive_page_v2.html"
 
-    def __str__(self):
-        return self.caption
+    content_panels = Page.content_panels + [
+        ImageChooserPanel("background_image"),
+        FieldPanel("author"),
+        StreamFieldPanel("info_snippets"),
+    ]
 
 
 class BTOPage(Page):
