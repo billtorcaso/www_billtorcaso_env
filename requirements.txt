@@ -1,4 +1,4 @@
-Django>=3.0.6,<3.1
+Django>=3.1.6
 wagtail>=2.9
 wagtailmedia>=0.5.0
 ### ---  Bill likes to have these two modules:
